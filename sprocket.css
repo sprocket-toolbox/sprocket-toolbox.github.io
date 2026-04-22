@@ -1,0 +1,97 @@
+/* sprocket.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--dark-chocolate);
+  color: var(--steamed-milk);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  max-width: 420px;
+  padding: 1rem;
+  background: var(--espresso);
+}
+
+.sprocket-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sprocket-header img {
+  max-width: 128px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.sprocket-header h1 {
+  margin: 0;
+}
+
+.clear-btn {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--coffee-bean);
+  color: var(--half-and-half);
+  font-family: inherit;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.clear-btn:hover {
+  color: var(--caramel);
+  border-color: var(--caramel);
+}
+
+:root {
+  /* Charcoal Base */
+  --espresso: #1a1a1a;
+  --dark-mocha: #222222;
+  --coffee-bean: #2e2e2e;
+
+  /* Off-White */
+  --steamed-milk: #e8e6df;
+  --light-cream: #d4cfc0;
+  --half-and-half: #9a9485;
+
+  /* Gold */
+  --caramel: #d4af37;
+  --pumpkin-spice: #f4c542;
+  --mocha: #8c6f1a;
+
+  /* Deeper Shades */
+  --dark-caramel: #4a3d1a;
+  --toasted-almond: #3a3a3a;
+  --dark-chocolate: #0d0d0d;
+
+  /* Cool Accents */
+  --mint: #8fa69a;
+  --light-mint: #b8c8bf;
+  --heavy-mint: #1c221f;
+
+  /* Highlight */
+  --raspberry: #c9a227;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--caramel);
+  letter-spacing: 0.02em;
+}

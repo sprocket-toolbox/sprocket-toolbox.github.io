@@ -1,5 +1,5 @@
 // sprocket.js
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
   const STORAGE_KEY = 'sprocket-checklist';
 
   let state = {};
@@ -37,25 +37,53 @@ document.addEventListener('DOMContentLoaded', function () {
     return dropdown + '|' + heading + '|' + label;
   }
 
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach(function (cb) {
-    const key = checkboxKey(cb);
-    if (state[key]) cb.checked = true;
-    cb.addEventListener('change', function () {
-      if (cb.checked) state[key] = true;
-      else delete state[key];
-      saveState();
-    });
-  });
+  const bound = new WeakSet();
 
-  const clearBtn = document.getElementById('clear-all');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', function () {
-      localStorage.removeItem(STORAGE_KEY);
-      state = {};
-      document.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
-        cb.checked = false;
+  function hookCheckboxes(root) {
+    const scope = root && root.querySelectorAll ? root : document;
+    const checkboxes = scope.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(function (cb) {
+      if (bound.has(cb)) return;
+      bound.add(cb);
+      const key = checkboxKey(cb);
+      if (state[key]) cb.checked = true;
+      cb.addEventListener('change', function () {
+        const k = checkboxKey(cb);
+        if (cb.checked) state[k] = true;
+        else delete state[k];
+        saveState();
       });
     });
   }
-});
+
+  function init() {
+    hookCheckboxes(document);
+
+    const main = document.querySelector('main') || document.body;
+    const observer = new MutationObserver(function (mutations) {
+      for (const m of mutations) {
+        for (const node of m.addedNodes) {
+          if (node.nodeType === 1) hookCheckboxes(node);
+        }
+      }
+    });
+    observer.observe(main, { childList: true, subtree: true });
+
+    const clearBtn = document.getElementById('clear-all');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        localStorage.removeItem(STORAGE_KEY);
+        state = {};
+        document.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+          cb.checked = false;
+        });
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

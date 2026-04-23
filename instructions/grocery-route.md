@@ -8,6 +8,7 @@
   [ ] Chems
   [ ] Pets
 
+---
 ### 🧽 Scrub Dept
   [ ] Seasonal
   [ ] Celebration
@@ -18,6 +19,7 @@
   [ ] Pets
   [ ] Apparel
 
+---
 ### 🧹 Sweep Aisles
   [ ] Frozen Sweep
   [ ] Aisle 8-12

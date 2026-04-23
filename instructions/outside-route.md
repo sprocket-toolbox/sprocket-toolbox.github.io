@@ -33,12 +33,15 @@
 ---
 ### 🧹 Sweep
   [ ] Apparel
-  [ ] under selected shelves
-  - Mon --> Paper/Pets/Chem
-  - Tue --> Grocery/Produce
-  - Wed --> Apparel/Frontend
-  - Thu --> Pharmacy/HBA/Cosmetics
-  - Fri --> Auto/Sports/Toys
-  - Sat --> Homeline/Houseware
-  - Sun --> Hardware/Electronics
+  [ ] Under selected shelves
+
+| Day | Departments                |
+|-----|----------------------------|
+| Mon | Paper / Pets / Chem        |
+| Tue | Grocery / Produce          |
+| Wed | Apparel / Frontend         |
+| Thu | Pharmacy / HBA / Cosmetics |
+| Fri | Auto / Sports / Toys       |
+| Sat | Homeline / Houseware       |
+| Sun | Hardware / Electronics     |
 <<<

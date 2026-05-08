@@ -1,33 +1,5 @@
-/* sprocket.css */
-
-/* Variable names preserved from brewdown's palette so its own rules
-   pick up our iridescent values. Don't rename these without also
-   overriding every brewdown rule that references them. */
-:root {
-  /* Gunmetal Base (sprocket body & chain) */
-  --espresso: #17181c;
-  --dark-mocha: #202228;
-  --coffee-bean: #2e3138;
-  --dark-chocolate: #0b0c0f;
-  --toasted-almond: #3a3d45;
-  --dark-caramel: #1a332e;
-
-  /* Chrome highlights */
-  --steamed-milk: #e8ebed;
-  --light-cream: #cfd4d8;
-  --half-and-half: #8a8f99;
-
-  /* Iridescent accents (oil-slick rainbow) */
-  --caramel: #5dd3c4;        /* primary: iridescent teal */
-  --pumpkin-spice: #e49ad0;  /* hover: iridescent pink */
-  --mocha: #7a6d9e;          /* muted: oil-slick purple */
-  --raspberry: #e6a56b;      /* warm: iridescent peach */
-
-  /* Cool palette (reserved) */
-  --mint: #8fa69a;
-  --light-mint: #b8c8bf;
-  --heavy-mint: #1c221f;
-}
+/* sprocket.css — layout, components, behavior.
+   Color palette lives in theme.css (load it first). */
 
 * {
   box-sizing: border-box;
@@ -42,8 +14,8 @@ body {
   margin: 0;
   padding: 0;
   background:
-    radial-gradient(ellipse at top, #14151a 0%, var(--dark-chocolate) 60%);
-  color: var(--steamed-milk);
+    radial-gradient(ellipse at top, #14151a 0%, var(--obsidian) 60%);
+  color: var(--chrome);
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 17px;
   line-height: 1.5;
@@ -56,7 +28,7 @@ main {
   width: 100%;
   max-width: 480px;
   padding: 1rem 1rem calc(4rem + env(safe-area-inset-bottom, 0px));
-  background: var(--espresso);
+  background: var(--gunmetal);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -67,10 +39,10 @@ main {
   gap: 0.9rem;
   padding: 0.75rem 0 1rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid var(--coffee-bean);
+  border-bottom: 1px solid var(--graphite);
   position: sticky;
   top: 0;
-  background: var(--espresso);
+  background: var(--gunmetal);
   z-index: 10;
 }
 
@@ -96,7 +68,7 @@ main {
   margin: 0;
   font-size: 1.8rem;
   letter-spacing: 0.02em;
-  color: var(--caramel); /* fallback */
+  color: var(--patina); /* fallback */
 }
 
 @supports (-webkit-background-clip: text) or (background-clip: text) {
@@ -117,8 +89,8 @@ main {
 .clear-btn {
   margin-left: auto;
   background: transparent;
-  border: 1px solid var(--coffee-bean);
-  color: var(--half-and-half);
+  border: 1px solid var(--graphite);
+  color: var(--nickel);
   font-family: inherit;
   font-size: 0.85rem;
   padding: 0.5rem 0.75rem;
@@ -131,9 +103,9 @@ main {
 
 .clear-btn:hover,
 .clear-btn:focus-visible {
-  color: var(--caramel);
-  border-color: var(--caramel);
-  background: var(--dark-mocha);
+  color: var(--patina);
+  border-color: var(--patina);
+  background: var(--steel);
   outline: none;
 }
 
@@ -144,17 +116,17 @@ main {
 /* ---------- Typography ---------- */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Georgia', 'Times New Roman', serif;
-  color: var(--caramel);
+  color: var(--patina);
   letter-spacing: 0.02em;
 }
 
 h3 {
   font-size: 1.05rem;
   margin: 1.25rem 0 0.4rem;
-  border-left: 3px solid var(--mocha);
+  border-left: 3px solid var(--oil-purple);
   padding-left: 0.6rem;
   line-height: 1.3;
-  color: var(--pumpkin-spice);
+  color: var(--holo-pink);
 }
 
 /* First heading inside a collapsible body shouldn't have a big top margin */
@@ -168,8 +140,8 @@ hr {
   height: 1px;
   background: linear-gradient(90deg,
     transparent,
-    var(--mocha) 20%,
-    var(--mocha) 80%,
+    var(--oil-purple) 20%,
+    var(--oil-purple) 80%,
     transparent);
   margin: 1.4rem 0 1rem;
   opacity: 0.55;
@@ -177,8 +149,8 @@ hr {
 
 /* ---------- Collapsible Cards ---------- */
 details {
-  background: var(--dark-mocha);
-  border: 1px solid var(--coffee-bean);
+  background: var(--steel);
+  border: 1px solid var(--graphite);
   border-radius: 12px;
   margin-bottom: 0.9rem;
   overflow: hidden;
@@ -187,10 +159,10 @@ details {
 }
 
 details[open] {
-  border-color: var(--mocha);
+  border-color: var(--oil-purple);
   box-shadow:
     0 4px 14px rgba(0, 0, 0, 0.4),
-    inset 3px 0 0 var(--caramel);
+    inset 3px 0 0 var(--patina);
 }
 
 summary {
@@ -199,8 +171,8 @@ summary {
   padding: 0.9rem 1rem;
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 1.15rem;
-  color: var(--caramel);
-  background: linear-gradient(180deg, var(--coffee-bean), var(--dark-mocha));
+  color: var(--patina);
+  background: linear-gradient(180deg, var(--graphite), var(--steel));
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -214,7 +186,7 @@ summary::-webkit-details-marker { display: none; }
 summary::before {
   content: '▸';
   display: inline-block;
-  color: var(--mocha);
+  color: var(--oil-purple);
   transition: transform 0.25s ease, color 0.2s;
   font-size: 1rem;
   flex-shrink: 0;
@@ -224,16 +196,16 @@ summary::before {
 
 details[open] > summary::before {
   transform: rotate(90deg);
-  color: var(--caramel);
+  color: var(--patina);
 }
 
 summary:hover,
 summary:focus-visible {
-  color: var(--pumpkin-spice);
+  color: var(--holo-pink);
   outline: none;
 }
 
-summary:active { background: var(--coffee-bean); }
+summary:active { background: var(--graphite); }
 
 details > *:not(summary) {
   padding-left: 1rem;
@@ -273,7 +245,7 @@ li > ul {
   flex-basis: 100%;
   margin: 0.25rem 0 0.1rem 2rem;
   padding-left: 0;
-  color: var(--half-and-half);
+  color: var(--nickel);
   font-size: 0.95rem;
 }
 
@@ -285,7 +257,7 @@ li > ul > li {
 }
 
 li > ul > li::marker {
-  color: var(--mocha);
+  color: var(--oil-purple);
 }
 
 /* ---------- Checkboxes ---------- */
@@ -294,9 +266,9 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   width: 22px;
   height: 22px;
-  border: 2px solid var(--half-and-half);
+  border: 2px solid var(--nickel);
   border-radius: 5px;
-  background: var(--espresso);
+  background: var(--gunmetal);
   margin: 0.15rem 0 0 0;
   cursor: pointer;
   flex-shrink: 0;
@@ -304,12 +276,12 @@ input[type="checkbox"] {
   transition: border-color 0.15s, background 0.15s, transform 0.1s;
 }
 
-input[type="checkbox"]:hover { border-color: var(--caramel); }
+input[type="checkbox"]:hover { border-color: var(--patina); }
 input[type="checkbox"]:active { transform: scale(0.92); }
 
 input[type="checkbox"]:checked {
-  background: var(--caramel);
-  border-color: var(--caramel);
+  background: var(--patina);
+  border-color: var(--patina);
 }
 
 input[type="checkbox"]:checked::after {
@@ -319,23 +291,104 @@ input[type="checkbox"]:checked::after {
   top: 1px;
   width: 6px;
   height: 12px;
-  border: solid var(--espresso);
+  border: solid var(--gunmetal);
   border-width: 0 2.5px 2.5px 0;
   transform: rotate(45deg);
 }
 
 input[type="checkbox"]:focus-visible {
-  outline: 2px solid var(--pumpkin-spice);
+  outline: 2px solid var(--holo-pink);
   outline-offset: 2px;
 }
 
 /* Dim a completed task — cleaner than a strike-through
    that bleeds into nested sub-bullets */
 li:has(> input[type="checkbox"]:checked) {
-  color: var(--half-and-half);
+  color: var(--nickel);
 }
 
 li:has(> input[type="checkbox"]:checked) > ul { opacity: 0.7; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 1.5rem;
+}
+
+.site-footer summary {
+  font-size: 0.95rem;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.info-about {
+  margin: 0;
+  color: var(--chrome);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem;
+  background: var(--gunmetal);
+  border: 1px solid var(--graphite);
+  border-radius: 10px;
+}
+
+.qr-code {
+  display: block;
+  background: #fff;
+  padding: 0.4rem;
+  border-radius: 6px;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.qr-link {
+  color: var(--patina);
+  text-decoration: none;
+  word-break: break-all;
+  text-align: center;
+  font-size: 0.82rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.qr-link:hover,
+.qr-link:focus-visible {
+  color: var(--holo-pink);
+  text-decoration: underline;
+}
+
+.info-credit {
+  margin: 0;
+  text-align: center;
+  color: var(--nickel);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--graphite);
+  padding-top: 0.85rem;
+}
+
+.info-credit a {
+  color: var(--patina);
+  text-decoration: none;
+}
+
+.info-credit a:hover,
+.info-credit a:focus-visible {
+  color: var(--holo-pink);
+  text-decoration: underline;
+}
 
 /* ---------- Mobile ---------- */
 @media (max-width: 480px) {

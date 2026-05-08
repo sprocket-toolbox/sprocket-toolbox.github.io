@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:coffeebyte.dev)"
+      "WebFetch(domain:coffeebyte.dev)",
+      "WebSearch",
+      "WebFetch(domain:www.8thandwalton.com)",
+      "WebFetch(domain:www.walmart.com)"
     ]
   }
 }

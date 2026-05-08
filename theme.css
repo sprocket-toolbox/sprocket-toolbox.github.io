@@ -1,0 +1,56 @@
+/* theme.css — color palette, single source of truth.
+   Two names per color:
+   - Coffee-themed names (kept for brewdown.css compatibility — its rules
+     reference these, so renaming or removing them would break it).
+   - Descriptive aliases that match what the colors actually look like;
+     prefer these in our own CSS going forward. */
+
+:root {
+  /* ---------- Coffee-themed names (load-bearing for brewdown) ---------- */
+
+  /* Gunmetal base */
+  --espresso: #17181c;
+  --dark-mocha: #202228;
+  --coffee-bean: #2e3138;
+  --dark-chocolate: #0b0c0f;
+  --toasted-almond: #3a3d45;
+  --dark-caramel: #1a332e;
+
+  /* Chrome highlights */
+  --steamed-milk: #e8ebed;
+  --light-cream: #cfd4d8;
+  --half-and-half: #8a8f99;
+
+  /* Iridescent accents (oil-slick rainbow) */
+  --caramel: #5dd3c4;        /* primary: iridescent teal */
+  --pumpkin-spice: #e49ad0;  /* hover: iridescent pink */
+  --mocha: #7a6d9e;          /* muted: oil-slick purple */
+  --raspberry: #e6a56b;      /* warm: iridescent peach */
+
+  /* Cool palette (reserved) */
+  --mint: #8fa69a;
+  --light-mint: #b8c8bf;
+  --heavy-mint: #1c221f;
+
+  /* ---------- Descriptive aliases ---------- */
+
+  --gunmetal: var(--espresso);
+  --steel: var(--dark-mocha);
+  --graphite: var(--coffee-bean);
+  --obsidian: var(--dark-chocolate);
+  --pewter: var(--toasted-almond);
+  --deep-patina: var(--dark-caramel);
+
+  --chrome: var(--steamed-milk);
+  --platinum: var(--light-cream);
+  --nickel: var(--half-and-half);
+
+  --patina: var(--caramel);
+  --holo-pink: var(--pumpkin-spice);
+  --oil-purple: var(--mocha);
+  --copper: var(--raspberry);
+
+  --sage: var(--mint);
+  --frost: var(--light-mint);
+  --forest: var(--heavy-mint);
+}

@@ -309,6 +309,53 @@ li:has(> input[type="checkbox"]:checked) {
 
 li:has(> input[type="checkbox"]:checked) > ul { opacity: 0.7; }
 
+/* ---------- Tables ---------- */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.4rem 0 0.6rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--graphite);
+  vertical-align: top;
+}
+
+th {
+  background: var(--graphite);
+  color: var(--patina);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(125, 109, 158, 0.05); }
+
+/* Narrow first column (# / aisle) */
+th:first-child, td:first-child {
+  width: 1%;
+  white-space: nowrap;
+  color: var(--nickel);
+}
+
+.parser-error {
+  color: #d97070;
+  background: rgba(217, 112, 112, 0.08);
+  border: 1px dashed rgba(217, 112, 112, 0.4);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   margin-top: 1.5rem;
